@@ -2,12 +2,12 @@ import { useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 
 const hostelData = {
-  1: { name: 'Sunrise Hostel', price: 300000, rating: 4.6, distance: 10, gender: 'Mixed', emoji: '🏠', bg: 'bg-primary-50', security: 90, water: 95, internet: 87, cleanliness: 85 },
-  2: { name: 'Kings Hostel', price: 350000, rating: 4.9, distance: 5, gender: 'Male', emoji: '🏡', bg: 'bg-blue-50', security: 95, water: 90, internet: 92, cleanliness: 90 },
-  3: { name: 'Grace Hostel', price: 250000, rating: 4.3, distance: 15, gender: 'Female', emoji: '🏘️', bg: 'bg-amber-50', security: 88, water: 80, internet: 70, cleanliness: 82 },
-  4: { name: 'Victory Hostel', price: 280000, rating: 4.5, distance: 8, gender: 'Mixed', emoji: '🏢', bg: 'bg-green-50', security: 92, water: 75, internet: 88, cleanliness: 80 },
-  5: { name: 'Hilltop Hostel', price: 220000, rating: 4.1, distance: 20, gender: 'Female', emoji: '🏔️', bg: 'bg-purple-50', security: 80, water: 85, internet: 78, cleanliness: 75 },
-  6: { name: 'Unity Hostel', price: 400000, rating: 4.8, distance: 3, gender: 'Male', emoji: '🏰', bg: 'bg-rose-50', security: 97, water: 93, internet: 95, cleanliness: 91 },
+  1: { name: 'Galaxy Hostel', price: 300000, rating: 4.6, distance: 5, gender: 'Mixed', emoji: '🏠', bg: 'bg-primary-50', security: 90, water: 95, internet: 87, cleanliness: 85 },
+  2: { name: 'Victory Hostel', price: 280000, rating: 4.5, distance: 8, gender: 'Mixed', emoji: '🏢', bg: 'bg-blue-50', security: 92, water: 75, internet: 88, cleanliness: 80 },
+  3: { name: 'Tupendane Hostel', price: 250000, rating: 4.3, distance: 10, gender: 'Mixed', emoji: '🏘️', bg: 'bg-amber-50', security: 88, water: 80, internet: 70, cleanliness: 82 },
+  4: { name: 'William Hostel', price: 320000, rating: 4.4, distance: 12, gender: 'Male', emoji: '🏡', bg: 'bg-green-50', security: 91, water: 90, internet: 85, cleanliness: 88 },
+  5: { name: 'Pameja Hostel', price: 220000, rating: 4.1, distance: 15, gender: 'Female', emoji: '🏔️', bg: 'bg-purple-50', security: 80, water: 85, internet: 78, cleanliness: 75 },
+  6: { name: 'Lea Courts', price: 270000, rating: 4.2, distance: 9, gender: 'Mixed', emoji: '🏰', bg: 'bg-rose-50', security: 85, water: 88, internet: 80, cleanliness: 83 },
 }
 
 const reviews = [

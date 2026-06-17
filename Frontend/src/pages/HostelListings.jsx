@@ -2,12 +2,12 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 const allHostels = [
-  { id: 1, name: 'Sunrise Hostel', price: 300000, rating: 4.6, distance: 10, gender: 'Mixed', wifi: true, water: true, security: 90, shuttle: true, badge: 'Verified', badgeColor: 'bg-primary-50 text-primary-600', emoji: '🏠', bg: 'bg-primary-50' },
-  { id: 2, name: 'Kings Hostel', price: 350000, rating: 4.9, distance: 5, gender: 'Male', wifi: true, water: true, security: 95, shuttle: true, badge: 'Top Rated', badgeColor: 'bg-blue-100 text-blue-700', emoji: '🏡', bg: 'bg-blue-50' },
-  { id: 3, name: 'Grace Hostel', price: 250000, rating: 4.3, distance: 15, gender: 'Female', wifi: false, water: true, security: 88, shuttle: false, badge: 'New', badgeColor: 'bg-amber-100 text-amber-700', emoji: '🏘️', bg: 'bg-amber-50' },
-  { id: 4, name: 'Victory Hostel', price: 280000, rating: 4.5, distance: 8, gender: 'Mixed', wifi: true, water: false, security: 92, shuttle: true, badge: 'Verified', badgeColor: 'bg-primary-50 text-primary-600', emoji: '🏢', bg: 'bg-green-50' },
-  { id: 5, name: 'Hilltop Hostel', price: 220000, rating: 4.1, distance: 20, gender: 'Female', wifi: true, water: true, security: 80, shuttle: false, badge: 'Verified', badgeColor: 'bg-primary-50 text-primary-600', emoji: '🏔️', bg: 'bg-purple-50' },
-  { id: 6, name: 'Unity Hostel', price: 400000, rating: 4.8, distance: 3, gender: 'Male', wifi: true, water: true, security: 97, shuttle: true, badge: 'Top Rated', badgeColor: 'bg-blue-100 text-blue-700', emoji: '🏰', bg: 'bg-rose-50' },
+  { id: 1, name: 'Galaxy Hostel', price: 300000, rating: 4.6, distance: 5, gender: 'Mixed', wifi: true, water: true, security: 90, shuttle: true, badge: 'Verified', badgeColor: 'bg-primary-50 text-primary-600', emoji: '🏠', bg: 'bg-primary-50', lat: 0.35610, lng: 32.74180 },
+  { id: 2, name: 'Victory Hostel', price: 280000, rating: 4.5, distance: 8, gender: 'Mixed', wifi: true, water: false, security: 92, shuttle: true, badge: 'Top Rated', badgeColor: 'bg-blue-100 text-blue-700', emoji: '🏢', bg: 'bg-blue-50', lat: 0.35480, lng: 32.74250 },
+  { id: 3, name: 'Tupendane Hostel', price: 250000, rating: 4.3, distance: 10, gender: 'Mixed', wifi: false, water: true, security: 88, shuttle: false, badge: 'New', badgeColor: 'bg-amber-100 text-amber-700', emoji: '🏘️', bg: 'bg-amber-50', lat: 0.35720, lng: 32.74050 },
+  { id: 4, name: 'William Hostel', price: 320000, rating: 4.4, distance: 12, gender: 'Male', wifi: true, water: true, security: 91, shuttle: false, badge: 'Verified', badgeColor: 'bg-primary-50 text-primary-600', emoji: '🏡', bg: 'bg-green-50', lat: 0.35350, lng: 32.74400 },
+  { id: 5, name: 'Pameja Hostel', price: 220000, rating: 4.1, distance: 15, gender: 'Female', wifi: true, water: true, security: 80, shuttle: false, badge: 'Verified', badgeColor: 'bg-primary-50 text-primary-600', emoji: '🏔️', bg: 'bg-purple-50', lat: 0.35900, lng: 32.73950 },
+  { id: 6, name: 'Lea Courts', price: 270000, rating: 4.2, distance: 9, gender: 'Mixed', wifi: true, water: true, security: 85, shuttle: true, badge: 'Verified', badgeColor: 'bg-primary-50 text-primary-600', emoji: '🏰', bg: 'bg-rose-50', lat: 0.35550, lng: 32.74300 },
 ]
 
 export default function HostelListings() {
