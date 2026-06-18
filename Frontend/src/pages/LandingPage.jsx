@@ -95,8 +95,6 @@ export default function LandingPage() {
 
   return (
     <div className="min-h-screen bg-gray-50 font-sans">
-
-      {/* Navbar */}
       <nav className="sticky top-0 z-50 bg-white border-b border-gray-100 px-6 py-3 flex items-center justify-between">
         <div className="flex items-center gap-2">
           <div className="w-8 h-8 bg-primary-500 rounded-lg flex items-center justify-center">
@@ -104,82 +102,52 @@ export default function LandingPage() {
           </div>
           <span className="text-gray-900 font-semibold text-lg">CampusNest</span>
         </div>
-
         <div className="hidden md:flex items-center gap-6">
           <a href="#hostels" className="text-sm text-gray-500 hover:text-gray-900">Hostels</a>
           <a href="#features" className="text-sm text-gray-500 hover:text-gray-900">Features</a>
           <a href="#" className="text-sm text-gray-500 hover:text-gray-900">Map</a>
         </div>
-
         <div className="flex items-center gap-2">
-          <button
-            onClick={() => navigate('/login')}
-            className="text-sm px-4 py-2 border border-gray-200 rounded-lg text-gray-700 hover:bg-gray-50"
-          >
+          <button onClick={() => navigate('/login')} className="text-sm px-4 py-2 border border-gray-200 rounded-lg text-gray-700 hover:bg-gray-50">
             Sign in
           </button>
-          <button
-            onClick={() => navigate('/register')}
-            className="text-sm px-4 py-2 bg-primary-500 text-white rounded-lg hover:bg-primary-600 font-medium"
-          >
+          <button onClick={() => navigate('/register')} className="text-sm px-4 py-2 bg-primary-500 text-white rounded-lg hover:bg-primary-600 font-medium">
             Register
           </button>
         </div>
       </nav>
 
-      {/* Hero */}
       <section className="bg-white px-6 pt-14 pb-10 text-center">
         <div className="inline-flex items-center gap-2 bg-primary-50 text-primary-600 text-xs font-medium px-3 py-1.5 rounded-full mb-5">
           📍 Built for UCU students in Mukono
         </div>
-
         <h1 className="text-4xl font-semibold text-gray-900 leading-tight max-w-xl mx-auto mb-4">
           Find your <span className="text-primary-500">ideal hostel</span> near campus — fast
         </h1>
-
         <p className="text-gray-500 text-base max-w-md mx-auto mb-8">
           Verified listings, real student reviews, and tools to plan your life at Uganda Christian University.
         </p>
 
-        {/* Search bar */}
-        <form
-          onSubmit={handleSearch}
-          className="flex items-center max-w-xl mx-auto border border-gray-200 rounded-xl overflow-hidden shadow-sm bg-white mb-8"
-        >
+        <form onSubmit={handleSearch} className="flex items-center max-w-xl mx-auto border border-gray-200 rounded-xl overflow-hidden shadow-sm bg-white mb-8">
           <span className="pl-4 text-gray-400 text-lg">🔍</span>
-          <input
-            type="text"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            placeholder="Search hostels near UCU..."
-            className="flex-1 px-3 py-3 text-sm outline-none text-gray-800 placeholder-gray-400"
-          />
-          <select
-            value={priceFilter}
-            onChange={(e) => setPriceFilter(e.target.value)}
-            className="border-l border-gray-100 bg-gray-50 text-sm px-3 py-3 text-gray-500 outline-none"
-          >
+          <input type="text" value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Search hostels near UCU..." className="flex-1 px-3 py-3 text-sm outline-none text-gray-800 placeholder-gray-400" />
+          <select value={priceFilter} onChange={(e) => setPriceFilter(e.target.value)} className="border-l border-gray-100 bg-gray-50 text-sm px-3 py-3 text-gray-500 outline-none">
             <option>Any price</option>
             <option>Under 200k</option>
             <option>200k – 400k</option>
             <option>Above 400k</option>
           </select>
-          <button
-            type="submit"
-            className="bg-primary-500 hover:bg-primary-600 text-white text-sm font-medium px-5 py-3"
-          >
+          <button type="submit" className="bg-primary-500 hover:bg-primary-600 text-white text-sm font-medium px-5 py-3">
             Search
           </button>
         </form>
 
-        {/* Trust badges */}
         <div className="flex flex-wrap items-center justify-center gap-5 mb-0">
           {['✅ Verified hostels', '🛡️ Safety ratings', '👥 Roommate matching', '💰 Budget planner'].map((item) => (
             <span key={item} className="text-sm text-gray-500">{item}</span>
           ))}
         </div>
 
-        {/* Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 border-t border-b border-gray-100 mt-10 bg-gray-50">
           {[
             { num: '85+', label: 'Listed hostels' },
@@ -195,37 +163,77 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Featured Hostels */}
       <section id="hostels" className="px-6 py-10">
         <div className="flex items-center justify-between mb-5">
           <h2 className="text-lg font-semibold text-gray-900">Featured hostels</h2>
-          <button
-            onClick={() => navigate('/hostels')}
-            className="text-sm text-primary-500 hover:text-primary-600 flex items-center gap-1"
-          >
+          <button onClick={() => navigate('/hostels')} className="text-sm text-primary-500 hover:text-primary-600 flex items-center gap-1">
             See all →
           </button>
         </div>
-
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {hostels.map((h) => (
-            <div
-              key={h.id}
-              className="bg-white border border-gray-100 rounded-xl overflow-hidden hover:border-primary-500 transition-colors cursor-pointer"
-              onClick={() => navigate(`/hostels/${h.id}`)}
-            >
-              {/* Thumbnail */}
+            <div key={h.id} className="bg-white border border-gray-100 rounded-xl overflow-hidden hover:border-primary-500 transition-colors cursor-pointer" onClick={() => navigate(`/hostels/${h.id}`)}>
               <div className={`h-28 ${h.bg} flex items-center justify-center text-4xl relative`}>
                 {h.emoji}
                 <span className={`absolute top-2 left-2 text-xs font-medium px-2 py-1 rounded-full ${h.badgeColor}`}>
                   {h.badge}
                 </span>
               </div>
-
-              {/* Body */}
               <div className="p-3">
                 <div className="font-medium text-gray-900 text-sm mb-1">{h.name}</div>
                 <div className="text-primary-500 text-sm font-medium mb-2">UGX {h.price} / month</div>
                 <div className="flex flex-wrap gap-2">
-                  {h.wifi && (
-                    <span className="text-xs text-gray-400 flex items-center gap-1">📶 WiFi</span>
+                  {h.wifi && (<span className="text-xs text-gray-400 flex items-center gap-1">📶 WiFi</span>)}
+                  {h.water && (<span className="text-xs text-gray-400 flex items-center gap-1">💧 Water</span>)}
+                  <span className="text-xs text-gray-400">🚶 {h.distance}</span>
+                  <span className="text-xs text-gray-400">👤 {h.gender}</span>
+                </div>
+              </div>
+              <div className="px-3 py-2 border-t border-gray-100 flex items-center justify-between">
+                <span className="text-xs text-gray-400">⭐ {h.rating}</span>
+                <button className="text-xs text-primary-500 font-medium">View details →</button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section id="features" className="px-6 py-10 bg-white">
+        <h2 className="text-lg font-semibold text-gray-900 mb-5">What makes CampusNest different</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {features.map((f) => (
+            <div key={f.title} className="bg-gray-50 rounded-xl p-5">
+              <div className="text-2xl mb-3">{f.icon}</div>
+              <div className="text-sm font-medium text-gray-900 mb-1">{f.title}</div>
+              <div className="text-xs text-gray-500 leading-relaxed">{f.desc}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="px-6 py-10">
+        <div className="bg-primary-500 rounded-2xl px-6 py-10 text-center">
+          <h2 className="text-2xl font-semibold text-white mb-2">Ready to find your room?</h2>
+          <p className="text-white/80 text-sm mb-6">Join 1,200+ UCU students who found their hostel on CampusNest.</p>
+          <div className="flex items-center justify-center gap-3 flex-wrap">
+            <button onClick={() => navigate('/register')} className="bg-white text-primary-600 font-medium text-sm px-6 py-3 rounded-lg hover:bg-gray-50">
+              Create free account
+            </button>
+            <button onClick={() => navigate('/hostels')} className="border border-white/40 text-white text-sm px-6 py-3 rounded-lg hover:bg-white/10">
+              Browse hostels
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <footer className="px-6 py-5 border-t border-gray-100 flex flex-wrap items-center justify-between gap-2">
+        <p className="text-xs text-gray-400">© 2025 CampusNest · Built for UCU students in Mukono</p>
+        <div className="flex gap-4">
+          <a href="#" className="text-xs text-gray-400 hover:text-gray-600">About</a>
+          <a href="#" className="text-xs text-gray-400 hover:text-gray-600">Contact</a>
+          <a href="#" className="text-xs text-gray-400 hover:text-gray-600">List your hostel</a>
+        </div>
+      </footer>
+    </div>
+  )
+}
