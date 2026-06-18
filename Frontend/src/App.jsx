@@ -6,7 +6,7 @@ import StudentDashboard from './pages/StudentDashboard'
 import HostelListings from './pages/HostelListings'
 import HostelDetails from './pages/HostelDetails'
 import RoommateMatching from './pages/RoommateMatching'
-import BudgetPlanner from "./pages/BudgetPlanner";
+import BudgetPlanner from './pages/BudgetPlanner'
 import AdminDashboard from './pages/AdminDashboard'
 import ManagerDashboard from './pages/ManagerDashboard'
 import MapView from './pages/MapView'
