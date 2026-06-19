@@ -8,10 +8,16 @@ export default {
     extend: {
       colors: {
         primary: {
-          50:  '#E1F5EE',
-          500: '#1D9E75',
-          600: '#0F6E56',
-          700: '#085041',
+          50:  '#EDF7F7',
+          100: '#D2EAEA',
+          500: '#1C8C8C',
+          600: '#136E6E',
+          700: '#0C5252',
+        },
+        slate: {
+          50:  '#F6F7F9',
+          100: '#EDEFF2',
+          200: '#DFE3E8',
         },
       },
       fontFamily: {
