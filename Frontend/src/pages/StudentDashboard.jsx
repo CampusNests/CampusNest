@@ -6,22 +6,22 @@ const quickActions = [
   { icon: '📋', label: 'Booking Requests', path: '/bookings', color: 'bg-blue-50 text-blue-600' },
   { icon: '👥', label: 'Roommate Matches', path: '/roommates', color: 'bg-purple-50 text-purple-600' },
   { icon: '💰', label: 'Budget Planner', path: '/budget', color: 'bg-amber-50 text-amber-600' },
-  { icon: '🗺️', label: 'Map View', path: '/map', color: 'bg-green-50 text-green-600' },
+  { icon: '🗺️', label: 'Map View', path: '/map', color: 'bg-emerald-50 text-emerald-600' },
 ]
 
 const savedHostels = [
-  { id: 1, name: 'Sunrise Hostel', price: '300,000', emoji: '🏠', bg: 'bg-primary-50' },
-  { id: 2, name: 'Kings Hostel', price: '350,000', emoji: '🏡', bg: 'bg-blue-50' },
+  { id: 1, name: 'Galaxy Hostel', price: '300,000', emoji: '🏠', bg: 'bg-primary-50' },
+  { id: 2, name: 'Victory Hostel', price: '280,000', emoji: '🏢', bg: 'bg-blue-50' },
 ]
 
 const recentBookings = [
-  { id: 1, hostel: 'Sunrise Hostel', room: 'Single Room', status: 'Pending', statusColor: 'bg-amber-100 text-amber-700', date: 'Submitted 2 days ago' },
+  { id: 1, hostel: 'Galaxy Hostel', room: 'Single Room', status: 'Pending', statusColor: 'bg-amber-100 text-amber-700', date: 'Submitted 2 days ago' },
 ]
 
 const notifications = [
-  { id: 1, text: 'Your booking request at Sunrise Hostel is under review', time: '2h ago', icon: '📋' },
+  { id: 1, text: 'Your booking request at Galaxy Hostel is under review', time: '2h ago', icon: '📋' },
   { id: 2, text: 'Sarah sent you a roommate request', time: '5h ago', icon: '👥' },
-  { id: 3, text: 'New vacancy opened at Kings Hostel', time: '1d ago', icon: '🏠' },
+  { id: 3, text: 'New vacancy opened at Victory Hostel', time: '1d ago', icon: '🏠' },
 ]
 
 export default function StudentDashboard() {
