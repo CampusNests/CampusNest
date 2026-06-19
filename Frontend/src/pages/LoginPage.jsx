@@ -21,10 +21,10 @@ export default function LoginPage() {
     setForm({ ...form, [e.target.name]: e.target.value })
   }
 
-  function handleSubmit(e) {
+function handleSubmit(e) {
     e.preventDefault()
-    if (mode === 'login') {
-      navigate('/dashboard')
+    if (mode === 'register-owner') {
+      navigate('/manager/dashboard')
     } else {
       navigate('/dashboard')
     }
