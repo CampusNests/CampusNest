@@ -8,16 +8,18 @@ export default {
     extend: {
       colors: {
         primary: {
-          50:  '#EDF7F7',
-          100: '#D2EAEA',
-          500: '#1C8C8C',
-          600: '#136E6E',
-          700: '#0C5252',
+          50:  '#EAF1FE',
+          100: '#C9DCFC',
+          500: '#2451E0',
+          600: '#1A3FBA',
+          700: '#142F8C',
         },
-        slate: {
-          50:  '#F6F7F9',
-          100: '#EDEFF2',
-          200: '#DFE3E8',
+        emerald: {
+          50:  '#E8F8F0',
+          100: '#C3EDD7',
+          500: '#10A85E',
+          600: '#0C8A4B',
+          700: '#086938',
         },
       },
       fontFamily: {
