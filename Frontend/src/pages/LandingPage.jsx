@@ -226,12 +226,13 @@ export default function LandingPage() {
         </div>
       </section>
 
-      <footer className="px-6 py-5 border-t border-gray-100 flex flex-wrap items-center justify-between gap-2">
+<footer className="px-6 py-5 border-t border-gray-100 flex flex-wrap items-center justify-between gap-2">
         <p className="text-xs text-gray-400">© 2025 CampusNest · Built for UCU students in Mukono</p>
         <div className="flex gap-4">
           <a href="#" className="text-xs text-gray-400 hover:text-gray-600">About</a>
           <a href="#" className="text-xs text-gray-400 hover:text-gray-600">Contact</a>
           <a href="#" className="text-xs text-gray-400 hover:text-gray-600">List your hostel</a>
+          <button onClick={() => navigate('/admin')} className="text-xs text-gray-400 hover:text-gray-600">Admin</button>
         </div>
       </footer>
     </div>
