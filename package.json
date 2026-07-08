@@ -1,6 +1,19 @@
 {
+  "name": "campusnest-root",
+  "private": true,
+  "scripts": {
+    "frontend": "npm --prefix Frontend run dev",
+    "frontend:preview": "npm --prefix Frontend run build && npm --prefix Frontend run preview",
+    "backend": "npm --prefix Backend start",
+    "dev": "concurrently \"npm run backend\" \"npm run frontend\"",
+    "preview": "concurrently \"npm run backend\" \"npm run frontend:preview\"",
+    "start": "npm run dev"
+  },
   "dependencies": {
     "leaflet": "^1.9.4",
     "react-leaflet": "^5.0.0"
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.3"
   }
 }
