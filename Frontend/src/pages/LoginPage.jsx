@@ -6,6 +6,8 @@ export default function LoginPage() {
 
   // 'login' | 'register-student' | 'register-owner'
   const [mode, setMode] = useState('login')
+  const [role, setRole] = useState('student')
+  const [error, setError] = useState('')
 
   const [form, setForm] = useState({
     firstName: '',
@@ -21,8 +23,38 @@ export default function LoginPage() {
     setForm({ ...form, [e.target.name]: e.target.value })
   }
 
-function handleSubmit(e) {
+async function handleSubmit(e) {
     e.preventDefault()
+
+    if (mode === 'login') {
+      setError('')
+      try {
+        const response = await fetch('/api/auth/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            email: form.email,
+            password: form.password,
+            role,
+          }),
+        })
+
+        const data = await response.json()
+        if (!response.ok) {
+          throw new Error(data.msg || 'Login failed')
+        }
+
+        if (role === 'manager') {
+          navigate('/manager/dashboard')
+        } else {
+          navigate('/dashboard')
+        }
+      } catch (err) {
+        setError(err.message)
+      }
+      return
+    }
+
     if (mode === 'register-owner') {
       navigate('/manager/dashboard')
     } else {
@@ -240,8 +272,40 @@ function handleSubmit(e) {
               </div>
 
               {mode === 'login' && (
-                <div className="text-right">
-                  <a href="#" className="text-xs text-primary-500 hover:text-primary-600">Forgot password?</a>
+                <>
+                  <div className="mb-4 flex gap-2">
+                    <button
+                      type="button"
+                      onClick={() => setRole('student')}
+                      className={`flex-1 text-sm py-2 rounded-lg font-medium transition-colors ${
+                        role === 'student'
+                          ? 'bg-primary-500 text-white'
+                          : 'text-gray-500 hover:text-gray-700 bg-gray-50'
+                      }`}
+                    >
+                      Student
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setRole('manager')}
+                      className={`flex-1 text-sm py-2 rounded-lg font-medium transition-colors ${
+                        role === 'manager'
+                          ? 'bg-primary-500 text-white'
+                          : 'text-gray-500 hover:text-gray-700 bg-gray-50'
+                      }`}
+                    >
+                      Manager
+                    </button>
+                  </div>
+                  <div className="text-right">
+                    <a href="#" className="text-xs text-primary-500 hover:text-primary-600">Forgot password?</a>
+                  </div>
+                </>
+              )}
+
+              {error && (
+                <div className="text-sm text-red-600 bg-red-50 rounded-xl px-4 py-3">
+                  {error}
                 </div>
               )}
 

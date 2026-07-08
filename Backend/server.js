@@ -1,37 +1,45 @@
+const path = require('path');
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const dns = require('dns');
-require('dotenv').config({ path: './dbpasswords.env' }); // Tells Node to look at your specific file name
 
-// Use explicit DNS servers when local resolver lookup fails for MongoDB Atlas.
-// You can override this by setting DNS_SERVERS in dbpasswords.env as a comma-separated list.
-const dnsResolvers = process.env.DNS_SERVERS
-  ? process.env.DNS_SERVERS.split(',').map((server) => server.trim()).filter(Boolean)
-  : ['2001:43ff::146'];
-if (dnsResolvers.length > 0) {
-  dns.setServers(dnsResolvers);
-  console.log('Using DNS servers:', dns.getServers());
-}
+require('dotenv').config({ path: path.join(__dirname, 'dbpasswords.env') });
 
 const app = express();
-
 app.use(cors());
 app.use(express.json());
 
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/booking', require('./routes/booking'));
 
+const dnsResolvers = process.env.DNS_SERVERS
+  ? process.env.DNS_SERVERS.split(',').map((server) => server.trim()).filter(Boolean)
+  : [];
+if (dnsResolvers.length > 0) {
+  dns.setServers(dnsResolvers);
+  console.log('Using DNS servers:', dns.getServers());
+}
 
-// Connect to your Cloud Database using the URI in your file
-mongoose.connect(process.env.MONGO_URI)
-  .then(() => console.log('🚀 Connected to MongoDB Cloud successfully!'))
-  .catch(err => console.error('❌ Database connection error:', err));
+const PORT = process.env.PORT || 5000;
+const MONGO_URI = process.env.MONGO_URI;
 
-// Test entry route
+if (!MONGO_URI) {
+  console.error('❌ Missing MONGO_URI; set it in Backend/dbpasswords.env or your environment.');
+  process.exit(1);
+}
+
+mongoose
+  .connect(MONGO_URI)
+  .then(() => {
+    console.log('🚀 Connected to MongoDB Cloud successfully!');
+    app.listen(PORT, () => console.log(`🛰️ Server running seamlessly on port ${PORT}`));
+  })
+  .catch((err) => {
+    console.error('❌ Database connection error:', err);
+    process.exit(1);
+  });
+
 app.get('/', (req, res) => {
   res.send('Campus Nest Backend Engine is running!');
 });
-
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`🛰️ Server running seamlessly on port ${PORT}`));

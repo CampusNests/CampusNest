@@ -2,8 +2,8 @@ const express = require('express');
 const router = express.Router();
 
 // Imports your clean, uniformly spelled backend models
-const Student = require('../models/student');
-const HostelManager = require('../models/HostelManager'); 
+const Student = require('../models/Student');
+const HostelManager = require('../models/HostelManager');
 const SystemAdmin = require('../models/SystemAdmin');
 
 // @route   POST api/auth/login

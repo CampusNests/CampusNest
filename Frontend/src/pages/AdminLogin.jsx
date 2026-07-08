@@ -5,10 +5,32 @@ export default function AdminLogin() {
   const navigate = useNavigate()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [error, setError] = useState('')
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault()
-    navigate('/admin/dashboard')
+    setError('')
+
+    try {
+      const response = await fetch('/api/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email,
+          password,
+          role: 'admin',
+        }),
+      })
+
+      const data = await response.json()
+      if (!response.ok) {
+        throw new Error(data.msg || 'Login failed')
+      }
+
+      navigate('/admin/dashboard')
+    } catch (err) {
+      setError(err.message)
+    }
   }
 
   return (
@@ -52,6 +74,11 @@ export default function AdminLogin() {
               />
             </div>
 
+            {error && (
+              <div className="text-sm text-red-600 bg-red-50 rounded-xl px-4 py-3 mb-4">
+                {error}
+              </div>
+            )}
             <button
               type="submit"
               className="w-full bg-primary-500 hover:bg-primary-600 text-white text-sm font-medium py-3 rounded-lg transition-colors mt-2"
